@@ -3,6 +3,7 @@ package com.learn.springbootdemo.controller;
 import com.learn.springbootdemo.model.Employee;
 import com.learn.springbootdemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,5 +33,10 @@ public class EmployeeController {
     @GetMapping("/{id}")
     public Employee getEmployeeById(@PathVariable("id") String empId){
         return employeeService.getEmployeeById(empId);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteEmployeeById(@PathVariable("id") String empId){
+        return employeeService.deleteEmployeeById(empId);
     }
 }
